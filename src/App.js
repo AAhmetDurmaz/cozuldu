@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainContext from './MainContext';
+import { BrowserView, MobileView } from 'react-device-detect';
 // Pages
 import MainPage from './Components/MainPage';
 import StartPage from './Components/StartPage';
@@ -50,17 +51,24 @@ function App() {
         kase, setKase,
     };
     return (
-        <MainContext.Provider value={data}>
-            <BrowserRouter>
-                <Routes>
-                    <Route exact path='/main' element={<MainPage cities={cities} />} />
-                    <Route exact path='/startup' element={<StartupPage />} />
-                    <Route exact path='/you-lost' element={<LosePage />} />
-                    <Route exact path='/you-win' element={<WinPage />} />
-                    <Route exact path='*' element={<StartPage />} />
-                </Routes>
-            </BrowserRouter>
-        </MainContext.Provider>
+        <>
+            <BrowserView>
+            <p className='text-center'>"Çözüldü" oyunu şimdilik masaüstü kullanıcıları için kapalıdır.</p>
+            </BrowserView>
+            <MobileView>
+                <MainContext.Provider value={data}>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route exact path='/main' element={<MainPage cities={cities} />} />
+                            <Route exact path='/startup' element={<StartupPage />} />
+                            <Route exact path='/you-lost' element={<LosePage />} />
+                            <Route exact path='/you-win' element={<WinPage />} />
+                            <Route exact path='*' element={<StartPage />} />
+                        </Routes>
+                    </BrowserRouter>
+                </MainContext.Provider>
+            </MobileView>
+        </>
     );
 }
 export default App
