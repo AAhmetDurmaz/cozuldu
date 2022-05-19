@@ -1,4 +1,2 @@
 # Cozuldu Game
-Cozuldu game written in ReactJS.
-This game written in 48 hours 'Kütahya DPÜ Gamejam' competition.
-```The dumbest React codebase ever...```
+'Çözüldü' game written in ReactJS.  'Çözüldü' game developed in 48 hours within Kütahya Game Jam 22 by Dumlupınar Univeristy.  ```The dumbest React codebase ever...```
